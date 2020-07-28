@@ -6,7 +6,7 @@ node {
     // Clone repo
 	git branch: 'master', 
 	//credentialsId: 'github', 
-	url: 'https://github.com/shameem2019/jenkinwork'
+	url: 'https://github.com/shameem2019/Jenkinwork'
    
    }
    
