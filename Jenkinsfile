@@ -1,13 +1,23 @@
-node {
-  
-  stage('SCM Checkout'){
-     
-    	url: 'https://github.com/shameem2019/jenkinsdemo'   
-   }
+pipeline {
+agent any&lt;/code&gt;
+ 
+tools{
+maven 'maven 3'
+jdk 'java 8'
+}
+ 
+stages {
+stage ("initialize") {
+steps {
+sh '''
+echo "PATH = ${PATH}"
+echo "M2_HOME = ${M2_HOME}"
+'''
+}
+}
+  stage ('Build project') {
+sh 'mvn clean verify'
+ 
 
-  stage('Compile-Package'){
-       def mvnHome=tool name: 'maven-3', type: 'maven'
-       sh "${mvnHome}/bin/mvn clean install"
-       sh "${mvnHome}/bin/mvn package"
-       }
-   }
+}
+}
