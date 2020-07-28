@@ -1,10 +1,12 @@
 node {
   
   stage('SCM Checkout'){
+     
     	url: 'https://github.com/shameem2019/jenkinsdemo'   
    }
 
   stage('Compile-Package'){
-       sh '/opt/apache-maven-3.6.3/bin/mvn package'
+       def mvnHome=tool name: 'maven-3', type: 'maven'
+       sh "${mvnHome}/bin/mvn package"
        }
    }
